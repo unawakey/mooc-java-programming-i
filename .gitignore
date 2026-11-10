@@ -1,0 +1,12 @@
+@"
+*.class
+build/
+dist/
+nbproject/private/
+.nb-gradle/
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+"@ | Out-File -Encoding utf8 .gitignore
+target/
