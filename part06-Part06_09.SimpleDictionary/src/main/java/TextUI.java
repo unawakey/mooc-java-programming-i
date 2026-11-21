@@ -15,14 +15,45 @@ public class TextUI {
 
         while (true) {
             System.out.print("Command: ");
-            String input = scanner.nextLine();
+            String command = scanner.nextLine();
 
-            if (input.equals("end")) {
+            if (command.equals("end")) {
+                System.out.println("Bye bye!");
                 break;
             }
-            System.out.println("Unknown Command");
+
+            process(command);
         }
 
+    }
+
+    public void process(String command) {
+        if (command.equals("add")) {
+            add();
+        } else if (command.equals("search")) {
+            search();
+        } else {
+            System.out.println("Unknown Command");
+        }
+    }
+
+    public void add() {
+        System.out.print("Word: ");
+        String word = scanner.nextLine();
+        System.out.print("Translation: ");
+        String translation = scanner.nextLine();
+        this.dictionary.add(word, translation);
+    }
+
+    public void search() {
+        System.out.print("To be translated");
+        String word = scanner.nextLine();
+
+        if (dictionary.translate(word) == null) {
+            System.out.println("Word " + word + " was not found");
+        } else {
+            System.out.println("Translation: " + dictionary.translate(word));
+        }
     }
 
 }
